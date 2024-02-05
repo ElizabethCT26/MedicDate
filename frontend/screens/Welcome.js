@@ -12,8 +12,8 @@ export default function Welcome() {
     }
 
   return (
-    <View>
-      <Image source={Doctor} style={tw`my-[20px] mx-[30px]`} />
+    <View style={tw `flex-1 justify-center items-center` }>
+      <Image source={Doctor} style={tw`my-[20px] mx-[30px] `} />
       <Text style={tw`text-center font-bold text-2xl mt-3`}>
         Cita con tu médico principal
       </Text>
@@ -28,7 +28,7 @@ export default function Welcome() {
         style={tw`bg-[#2DAFC8] w-[320px] items-center mt-[100px] ml-[37px] mr-[37px] p-4 rounded-[20px] `}
         onPress={handleNextPress}
       >
-        <Text style={tw`text-white font-bold`}>Siguiente</Text>
+        <Text style={tw`text-white font-bold items-center`}>Siguiente</Text>
       </TouchableOpacity>
     </View>
   );

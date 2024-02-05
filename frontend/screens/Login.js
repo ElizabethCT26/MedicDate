@@ -16,7 +16,7 @@ export default function Login() {
       };
 
   return (
-    <View>
+    <View >
       <Image
         source={MedicDate}
         style={tw`h-[52px] w-[235px] ml-[90px] mt-[40px]`}
@@ -46,6 +46,7 @@ export default function Login() {
           onChangeText={(text) => setPassword(text)}
           style={tw`border-gray-500 w-[320px] border rounded-[20px] p-2 ml-[32px] mt-10 px-12`}
         />
+        
       </View>
       <Footer />
     </View>
