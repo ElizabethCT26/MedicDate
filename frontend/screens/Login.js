@@ -5,9 +5,10 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React,{useState} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Corazon from "../assets/corazonMedicDate.png";
@@ -15,7 +16,49 @@ import Correo from "../assets/correo.png";
 import Contrasena from "../assets/contrasena.png";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigation = useNavigation();
+
+
+  const handleLogin = async () => {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const passwordPattern = /^[a-zA-Z0-9!@#$%^&*]{6,}$/;
+  
+    if (!email || !password || !emailPattern.test(email) || !passwordPattern.test(password)) {
+      Alert.alert("Error", "Todos los campos deben ser llenados correctamente.");
+      return;
+    }
+    try {
+      const response = await fetch("http://192.168.100.9:4000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      console.log(data);
+      // console.log(data.success);
+      if (data.message === "Doctor") {
+        // Login exitoso, redirigir a la pantalla deseada
+        navigation.navigate("Doctor");
+      } else if (data.message === "user"){
+        navigation.navigate("Table");
+      }else if (data.message === "administrator"){
+        navigation.navigate("AdministradorHomem");
+      }else{
+        // Login fallido, mostrar mensaje de error
+        Alert.alert("Error", "El usuario no existe, 'Revise sus credenciales'.");
+      }
+    } catch (error) {
+      // console.error("Error al iniciar sesión:", error);
+      Alert("Error", "Error al iniciar sesión. Por favor, inténtalo de nuevo.");
+    }
+  };
+  
+
+
   return (
     <View style={{ flex: 1}}>
       <Header />
@@ -59,6 +102,8 @@ export default function Login() {
                 paddingLeft: 50,
               }}
               placeholder="Correo electronico"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
             />
             <Image
               source={Correo}
@@ -79,6 +124,8 @@ export default function Login() {
                 paddingLeft: 50,
               }}
               placeholder="Contraseña"
+              value={password}
+              onChangeText={(text) => setPassword(text)}
             />
             <Image
               source={Contrasena}
@@ -96,7 +143,7 @@ export default function Login() {
         >
           <TouchableOpacity
             style={{ width: 300, alignItems: "center" }}
-            onPress={() => navigation.navigate("Table")}
+            onPress={handleLogin}
           >
             <Text
               style={{
@@ -106,7 +153,7 @@ export default function Login() {
                 padding: 15,
               }}
             >
-              Inicar sesión
+              Iniciar sesión
             </Text>
           </TouchableOpacity>
         </View>

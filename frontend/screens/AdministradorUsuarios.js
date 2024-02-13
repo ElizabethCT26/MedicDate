@@ -5,8 +5,11 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
+  FlatList,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import React from "react";
 import Header from "../components/Header";
 import Exit from "../assets/exit.png";
@@ -14,13 +17,62 @@ import Corazon from "../assets/corazonMedicDate.png";
 import UserBottom from "../assets/userBottom.png";
 import HomeBottom from "../assets/homeBottom.png";
 import DocBotoom from "../assets/docBottom.png";
+import Users from "../assets/Users.png";
+import Eliminar from "../assets/botonX.png";
 
 export default function AdministradorUsuarios() {
+  const [data, setData] = useState([
+    { id: 1, name: "Jose del Carmen" },
+    { id: 2, name: "Juan" },
+    { id: 3, name: "Juan" },
+    { id: 4, name: "Carlos" },
+    { id: 5, name: "Octavio Cruz" },
+  ]);
+
+  const handleDelete = (id) => {
+    // Mostrar la alerta para confirmar la eliminación
+    Alert.alert(
+      'Confirmar eliminación',
+      '¿Estás seguro de que deseas eliminar este usuario?',
+      [
+        {
+          text: 'Cancelar',
+          onPress: () => console.log('Cancelado'),
+          style: 'cancel'
+        },
+        {
+          text: 'Eliminar',
+          onPress: () => {
+            // Lógica para eliminar el elemento con el id dado
+            setData(data.filter((item) => item.id !== id));
+          }
+        }
+      ]
+    );
+  };
+
   const navigation = useNavigation();
+
+  const renderItem = ({ item }) => (
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "gray",
+      }}
+    >
+      <Text>{item.id}</Text>
+      <Text>{item.name}</Text>
+      <TouchableOpacity onPress={() => handleDelete(item.id)}>
+        <Image source={Eliminar} />
+      </TouchableOpacity>
+    </View>
+  );
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View
           style={{
             flexDirection: "row",
@@ -45,6 +97,27 @@ export default function AdministradorUsuarios() {
           <Text style={{ fontSize: 40, color: "#289797", fontWeight: "bold" }}>
             Usuarios
           </Text>
+          <Image source={Users} style={{ width: "40%", height: "40%", marginBottom:"15%" }} />
+        <View style={{ flex: 1,width: "90%", height: "100%", position:"absolute", marginTop:"60%"  }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              padding: 10,
+              backgroundColor: "#A8EAE1",
+              marginBottom: "1%",
+            }}
+          >
+            <Text style={{ fontWeight: "bold" }}>N°</Text>
+            <Text style={{ fontWeight: "bold" }}>Nombre</Text>
+            <Text style={{ fontWeight: "bold"}}>Eliminar</Text>
+          </View>
+          <FlatList
+            data={data}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id.toString()}
+          />
+        </View>
         </View>
         {/* Barra de navegación */}
         <View
@@ -88,7 +161,6 @@ export default function AdministradorUsuarios() {
             <Text>Doctores</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 }
