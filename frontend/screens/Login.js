@@ -22,39 +22,8 @@ export default function Login() {
 
 
   const handleLogin = async () => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    const passwordPattern = /^[a-zA-Z0-9!@#$%^&*]{6,}$/;
-  
-    if (!email || !password || !emailPattern.test(email) || !passwordPattern.test(password)) {
-      Alert.alert("Error", "Todos los campos deben ser llenados correctamente.");
-      return;
-    }
-    try {
-      const response = await fetch("http://192.168.100.9:4000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
-      console.log(data);
-      // console.log(data.success);
-      if (data.message === "Doctor") {
-        // Login exitoso, redirigir a la pantalla deseada
         navigation.navigate("Doctor");
-      } else if (data.message === "user"){
-        navigation.navigate("Table");
-      }else if (data.message === "administrator"){
-        navigation.navigate("AdministradorHomem");
-      }else{
-        // Login fallido, mostrar mensaje de error
-        Alert.alert("Error", "El usuario no existe, 'Revise sus credenciales'.");
-      }
-    } catch (error) {
-      // console.error("Error al iniciar sesión:", error);
-      Alert("Error", "Error al iniciar sesión. Por favor, inténtalo de nuevo.");
-    }
+
   };
   
 

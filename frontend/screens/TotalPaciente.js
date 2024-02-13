@@ -76,6 +76,71 @@ export default function TotalPaciente() {
               <Image source={TotalPacientes} style={{ top: 5 }} />
             </View>
             
+
+
+            <View
+            style={{
+              display: "flex",
+              flexDirection: "column", 
+              justifyContent: "space-between",
+              margin: 10,
+              height: 122,
+              width: "85%",
+              top: 150,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <View style={{ width: "100%" }}>
+              <Text style={{ color: "white", fontWeight: "bold", paddingTop: 10, color: "#212121", fontSize: 20 , marginBottom:40}}>
+                Hoy atiende a los pacientes
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                <View style={{ margin: 8, display: "flex", justifyContent: 'center', alignItems: 'center' }}>
+                  <Text style={{ margin: 4, fontWeight: "bold", color: "#0356F8" }}>Cancelar</Text>
+                  <Text style={{ margin: 4 }}>13:30</Text>
+                  <Text style={{ margin: 4 }}>14:30</Text>
+                  <Text style={{ margin: 4 }}>15:30</Text>
+                  <Text style={{ margin: 4 }}>16:30</Text>
+                  <Text style={{ margin: 4 }}>17:30</Text>
+                  <Text style={{ margin: 4 }}>18:30</Text>
+                  <Text style={{ margin: 4 }}>19:30</Text>
+                  <Text style={{ margin: 4 }}>20:30</Text>
+                  <Text style={{ margin: 4 }}>21:30</Text>
+                </View>
+                <View style={{ margin: 8, display: "flex", justifyContent: 'center', alignItems: 'center' }}>
+                  <Text style={{ margin: 4, fontWeight: "bold", color: "#0356F8" }}>Cancelar</Text>
+                  <Text style={{ margin: 4 }}>Carlos</Text>
+                  <Text style={{ margin: 4 }}>Maria</Text>
+                  <Text style={{ margin: 4 }}>Israel</Text>
+                  <Text style={{ margin: 4 }}>Jesus</Text>
+                  <Text style={{ margin: 4 }}>Octavio</Text>
+                  <Text style={{ margin: 4 }}>Miguel</Text>
+                  <Text style={{ margin: 4 }}>Elizabeth</Text>
+                  <Text style={{ margin: 4 }}>Abner</Text>
+                  <Text style={{ margin: 4 }}>Marisol</Text>
+                </View>
+                <View style={{ margin: 8, display: "flex", justifyContent: 'center', alignItems: 'center' }}>
+                  <Text style={{ margin: 4, fontWeight: "bold", color: "#0356F8" }}>Cancelar</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                  <Text style={{ color: "#E00000", margin: 4 }}>X</Text>
+                </View>
+
+            </View>
+            
+            
+
+          </View>
+
+
           </View>
         </ScrollView>
       </View>

@@ -31,22 +31,10 @@ export default function CalentarioConsulta() {
               }}
               onPress={() => navigation.navigate("Doctor")}
             >
-              <Text
-                style={{
-                  position: "absolute",
-                  right: 10,
-                  fontWeight: "bold",
-                  fontSize: 20,
-                }}
-              >
-                Doctor!
-              </Text>
+              <Text style={{ position: "absolute", right: 10, fontWeight: "bold", fontSize: 20, }}> Doctor! </Text>
               <Image source={Exit} style={{ position: "absolute" }} />
             </TouchableOpacity>
-            <View
-              style={{
-                position: "absolute",
-                left: 35,
+            <View style={{ position: "absolute", left: 35,
                 top: 95,
                 flexDirection: "row",
                 alignItems: "center",
@@ -71,12 +59,157 @@ export default function CalentarioConsulta() {
               <Text
                 style={{ color: "white", fontWeight: "bold", paddingTop: 10 }}
               >
-                Calendario de consultas
+                Calendario de consultar
               </Text>
               <Image source={AgendaCitas} style={{ top: 5 }} />
             </View>
             
+
+            <View
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              margin: 10,
+              height: 122,
+              width: "65%",
+              top: 150,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <View style={{ width: "100%" }}>
+              <Text style={{ color: "white", fontWeight: "bold", paddingTop: 10, color: "#0356F8", fontSize: 24 }}>
+                Lunes
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+              <View style={{ margin:8 }}>
+                <Text>Hora</Text>
+                <Text>13:30</Text>
+                <Text>14:30</Text>
+                <Text>15:30</Text>
+              </View>
+              <View style={{ margin:8 }}>
+                <Text>Paciente</Text>
+                <Text>Carlos</Text>
+                <Text>Maria</Text>
+                <Text>Israel</Text>
+              </View>
+            </View>
           </View>
+
+
+
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "column", 
+              justifyContent: "space-between",
+              margin: 10,
+              height: 122,
+              width: "65%",
+              top: 150,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <View style={{ width: "100%" }}>
+              <Text style={{ color: "white", fontWeight: "bold", paddingTop: 10, color: "#08F803", fontSize: 24 }}>
+                Martes
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+              <View style={{ margin:8 }}>
+                <Text>Hora</Text>
+                <Text>13:30</Text>
+                <Text>14:30</Text>
+                <Text>15:30</Text>
+              </View>
+              <View style={{ margin:8 }}>
+                <Text>Paciente</Text>
+                <Text>Carlos</Text>
+                <Text>Maria</Text>
+                <Text>Israel</Text>
+              </View>
+            </View>
+          </View>
+
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "column", 
+              justifyContent: "space-between",
+              margin: 10,
+              height: 122,
+              width: "65%",
+              top: 150,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <View style={{ width: "100%" }}>
+              <Text style={{ color: "white", fontWeight: "bold", paddingTop: 10, color: "#00AA6D", fontSize: 24 }}>
+                Miercoles
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+              <View style={{ margin:8 }}>
+                <Text>Hora</Text>
+                <Text>13:30</Text>
+                <Text>14:30</Text>
+                <Text>15:30</Text>
+              </View>
+              <View style={{ margin:8 }}>
+                <Text>Paciente</Text>
+                <Text>Carlos</Text>
+                <Text>Maria</Text>
+                <Text>Israel</Text>
+              </View>
+            </View>
+          </View>
+          
+
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              margin: 10,
+              height: 122,
+              width: "65%",
+              top: 150,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <View style={{ width: "100%" }}>
+              <Text style={{ color: "white", fontWeight: "bold", paddingTop: 10, color: "", fontSize: 24 }}>
+                Jueves
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+              <View style={{ margin:8 }}>
+                <Text>Hora</Text>
+                <Text>13:30</Text>
+                <Text>14:30</Text>
+                <Text>15:30</Text>
+              </View>
+              <View style={{ margin:8 }}>
+                <Text>Paciente</Text>
+                <Text>Carlos</Text>
+                <Text>Maria</Text>
+                <Text>Israel</Text>
+              </View>
+            </View>
+          </View>
+
+          
+
+
+            
+          </View>
+
         </ScrollView>
       </View>
       <Footer />
