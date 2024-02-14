@@ -27,9 +27,9 @@ export default function Doctor() {
             <Text style={{color:'white', fontWeight:'bold', paddingLeft:20, paddingTop:10}}>Su proxima cita es:</Text>
         </View>
 
-        <TouchableOpacity style={{alignItems:'center'}} onPress={() => navigation.navigate('AgendayCitas')}>
+        <TouchableOpacity style={{alignItems:'center'}} onPress={() => navigation.navigate('Table')}>
         <View style={{position:'absolute', backgroundColor:'#2DC846', height:122, width:'85%', top:300, borderRadius: 10, alignItems:'center'}}>
-            <Text style={{color:'white', fontWeight:'bold', paddingTop:10 }}>Agenda y citas</Text>
+            <Text style={{color:'white', fontWeight:'bold', paddingTop:10 }}>Seccion de usuarios</Text>
             <Image source={Usuarios} style={{top:10}}/>
         </View>
         </TouchableOpacity>

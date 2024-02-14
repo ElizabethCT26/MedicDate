@@ -71,7 +71,7 @@ export default function AgendayCitas() {
               <Text
                 style={{ color: "white", fontWeight: "bold", paddingTop: 10 }}
               >
-                Agenda y citas
+                usuarios
               </Text>
               <Image source={Usuarios} style={{ top: 10 }} />
             </View>
